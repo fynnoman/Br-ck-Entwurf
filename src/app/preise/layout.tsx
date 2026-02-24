@@ -1,26 +1,27 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Preise",
+  title: "Sprechzeiten & Leistungen",
   description:
-    "Transparente Preise für Gebäudereinigung & Hausmeisterservice in Pirmasens. Ca. 28 €/Stunde – faire Konditionen, kein Kleingedrucktes. Jetzt Angebot anfragen.",
+    "Sprechzeiten und Leistungsangebot der Hausarztpraxis Dr. med. Anna Berger in Freiburg. Allgemeinmedizin, Vorsorge, Labordiagnostik und mehr.",
   keywords: [
-    "Reinigung Preise Pirmasens",
-    "Gebäudereinigung Kosten",
-    "Hausmeisterservice Stundensatz",
-    "Reinigungsfirma Preisliste Pirmasens",
+    "Hausarzt Freiburg Sprechzeiten",
+    "Arztpraxis Freiburg Öffnungszeiten",
+    "Allgemeinmedizin Freiburg",
+    "Hausarztpraxis Freiburg Leistungen",
   ],
   alternates: {
-    canonical: "https://www.salif-gebaeude.de/preise",
+    canonical: "https://www.praxis-dr-berger.de/preise",
   },
   openGraph: {
-    title: "Preise | Salif Gebäudeservice Pirmasens",
+    title: "Sprechzeiten & Leistungen | Praxis Dr. Berger Freiburg",
     description:
-      "Faire Preise für Reinigung & Hausmeisterservice in Pirmasens. Ca. 28 €/Stunde. Individuelle Angebote auf Anfrage.",
-    url: "https://www.salif-gebaeude.de/preise",
+      "Sprechzeiten und Leistungen der Hausarztpraxis Dr. Anna Berger in Freiburg. Termine Mo–Fr.",
+    url: "https://www.praxis-dr-berger.de/preise",
   },
 };
 
 export default function PreiseLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
+

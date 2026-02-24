@@ -3,21 +3,21 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Anfahrt",
   description:
-    "Salif Gebäudeservice in Pirmasens – Emilienstraße 5a, 66955 Pirmasens. Anfahrtsbeschreibung, Öffnungszeiten und Kontakt. Erreichbar Mo–Sa 7–20 Uhr.",
+    "Anfahrt zur Hausarztpraxis Dr. med. Anna Berger – Schillerstraße 12, 79102 Freiburg im Breisgau. Parkmöglichkeiten, ÖPNV-Anbindung und Sprechzeiten.",
   keywords: [
-    "Salif Gebäudeservice Adresse",
-    "Reinigungsfirma Pirmasens Adresse",
-    "Pirmasens Emilienstraße",
-    "Anfahrt Pirmasens",
+    "Hausarzt Freiburg Adresse",
+    "Arztpraxis Freiburg Schillerstraße",
+    "Arzt Freiburg Anfahrt",
+    "Dr. Berger Freiburg",
   ],
   alternates: {
-    canonical: "https://www.salif-gebaeude.de/anfahrt",
+    canonical: "https://www.praxis-dr-berger.de/anfahrt",
   },
   openGraph: {
-    title: "Anfahrt | Salif Gebäudeservice Pirmasens",
+    title: "Anfahrt | Praxis Dr. Berger Freiburg",
     description:
-      "So finden Sie uns: Emilienstraße 5a, 66955 Pirmasens. Erreichbar Mo–Sa 7–20 Uhr per Telefon, E-Mail oder WhatsApp.",
-    url: "https://www.salif-gebaeude.de/anfahrt",
+      "So finden Sie uns: Schillerstraße 12, 79102 Freiburg. Gut erreichbar mit Auto und Straßenbahn.",
+    url: "https://www.praxis-dr-berger.de/anfahrt",
   },
 };
 

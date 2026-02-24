@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #1a3a5c;
-  --color-primary-light: #2a5a8c;
-  --color-primary-dark: #0f2440;
-  --color-accent: #22c55e;
-  --color-accent-dark: #16a34a;
-  --color-background: #ffffff;
-  --color-foreground: #171717;
-  --color-muted: #f8fafc;
-  --color-muted-dark: #f1f5f9;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #1c3557;
+  --color-primary-light: #2a4e7a;
+  --color-primary-dark: #111f36;
+  --color-accent: #b8986a;
+  --color-accent-light: #d4b98a;
+  --color-accent-dark: #9a7d52;
+  --color-background: #faf9f7;
+  --color-foreground: #1a1a1a;
+  --color-muted: #f4f1ec;
+  --color-muted-dark: #ece8e0;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
 }
 
 html {
@@ -21,54 +22,45 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Georgia, serif;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f4f1ec;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a3a5c;
-  border-radius: 4px;
+  background: #b8986a;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a5a8c;
+  background: #9a7d52;
 }
 
-/* Animated gradient background */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* Serif display font utility */
+.font-serif {
+  font-family: var(--font-serif), Georgia, 'Times New Roman', serif;
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+/* Subtle fade-in for sections */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Pulse glow */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.6); }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+/* Thin gold divider line */
+.divider-gold {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b8986a, transparent);
 }

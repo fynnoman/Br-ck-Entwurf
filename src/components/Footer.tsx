@@ -2,53 +2,53 @@
 
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
-import Image from "next/image";
 
 const footerLinks = [
-  { name: "Start", href: "#hero" },
+  { name: "Willkommen", href: "#hero" },
   { name: "Leistungen", href: "#services" },
   { name: "Über uns", href: "#about" },
+  { name: "Team", href: "#portfolio" },
   { name: "Kontakt", href: "#contact" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-primary-dark text-white relative overflow-hidden">
-      {/* Logo as full background */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.10]">
-        <Image
-          src="/51D6E89F-A80E-41DF-9C4F-68DD77279567.png"
-          alt=""
-          fill
-          className="object-cover"
-        />
-      </div>
+      {/* Subtle grain texture */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Top gold line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Main footer */}
-        <div className="grid md:grid-cols-3 gap-16 py-28">
+        <div className="grid md:grid-cols-3 gap-16 py-20">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-accent to-emerald-400 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <div>
-                <span className="font-bold text-xl tracking-tight">SALIF</span>
-                <span className="block text-[10px] tracking-widest uppercase text-white/60">
-                  Gebäudeservice
-                </span>
-              </div>
+            <div className="mb-6">
+              <p
+                className="text-white text-xl font-light mb-1"
+                style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+              >
+                Dr. med. Anna Berger
+              </p>
+              <p className="text-accent text-[10px] tracking-[0.25em] uppercase font-light">
+                Hausarztpraxis · Freiburg
+              </p>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed max-w-sm">
-              Haus und mehr GbR – Ihre zuverlässigen Dienstleistungen aus einer
-              Hand in Pirmasens und Umgebung.
+            <p className="text-white/40 text-sm leading-relaxed font-light max-w-xs">
+              Ihre Hausarztpraxis für Allgemeinmedizin, Vorsorge und persönliche
+              Betreuung im Herzen von Freiburg.
             </p>
           </div>
 
           {/* Quick links */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-white/40 mb-5">
+            <h4 className="font-light text-[10px] uppercase tracking-[0.25em] text-white/30 mb-6">
               Navigation
             </h4>
             <nav aria-label="Footer Navigation">
@@ -57,7 +57,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-white/70 hover:text-accent transition-colors text-sm"
+                      className="text-white/50 hover:text-white transition-colors text-sm font-light"
                     >
                       {link.name}
                     </a>
@@ -69,32 +69,32 @@ export default function Footer() {
 
           {/* Contact info */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-white/40 mb-5">
+            <h4 className="font-light text-[10px] uppercase tracking-[0.25em] text-white/30 mb-6">
               Kontakt
             </h4>
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:015229043159"
-                  className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm"
+                  href="tel:076112345670"
+                  className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm font-light"
                 >
-                  <Phone className="w-4 h-4" />
-                  01522 904 3159
+                  <Phone className="w-3.5 h-3.5 text-accent" />
+                  0761 123 4567
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:salif-dienstleistungen@gmx.de"
-                  className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm"
+                  href="mailto:info@praxis-dr-berger.de"
+                  className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm font-light"
                 >
-                  <Mail className="w-4 h-4" />
-                  salif-dienstleistungen@gmx.de
+                  <Mail className="w-3.5 h-3.5 text-accent" />
+                  info@praxis-dr-berger.de
                 </a>
               </li>
               <li>
-                <div className="flex items-center gap-3 text-white/70 text-sm">
-                  <MapPin className="w-4 h-4 flex-shrink-0" />
-                  Emilienstraße 5a, 66955 Pirmasens
+                <div className="flex items-start gap-3 text-white/50 text-sm font-light">
+                  <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                  Schillerstraße 12,&nbsp;79102 Freiburg
                 </div>
               </li>
             </ul>
@@ -102,31 +102,30 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10" />
+        <div className="h-px bg-white/8" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between py-10 gap-4">
-          <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} Salif Gebäudeservice – Haus und mehr
-            GbR. Alle Rechte vorbehalten.
+        <div className="flex flex-col sm:flex-row items-center justify-between py-8 gap-4">
+          <p className="text-white/25 text-xs font-light tracking-wide">
+            © {new Date().getFullYear()} Dr. med. Anna Berger – Hausarztpraxis Freiburg.
+            Alle Rechte vorbehalten.
           </p>
 
           <div className="flex items-center gap-6">
-            <a href="/impressum" className="text-white/40 hover:text-accent text-sm transition-colors">
+            <a href="/impressum" className="text-white/25 hover:text-white/60 text-xs font-light transition-colors">
               Impressum
             </a>
-            <a href="/datenschutz" className="text-white/40 hover:text-accent text-sm transition-colors">
+            <a href="/datenschutz" className="text-white/25 hover:text-white/60 text-xs font-light transition-colors">
               Datenschutz
             </a>
 
-            {/* Back to top */}
             <motion.a
               href="#hero"
-              className="flex items-center gap-2 text-white/40 hover:text-accent text-sm transition-colors"
+              className="flex items-center gap-2 text-white/25 hover:text-accent text-xs font-light transition-colors"
               whileHover={{ y: -2 }}
             >
               Nach oben
-              <ArrowUp className="w-4 h-4" />
+              <ArrowUp className="w-3.5 h-3.5" />
             </motion.a>
           </div>
         </div>
@@ -134,3 +133,4 @@ export default function Footer() {
     </footer>
   );
 }
+

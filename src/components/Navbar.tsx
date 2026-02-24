@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 
 const navLinks = [
-  { name: "Start", href: "#hero" },
+  { name: "Willkommen", href: "#hero" },
   { name: "Leistungen", href: "#services" },
   { name: "Über uns", href: "#about" },
-  { name: "Projekte", href: "#portfolio" },
-  { name: "Preise", href: "/preise" },
+  { name: "Team", href: "#portfolio" },
+  { name: "Sprechzeiten", href: "/preise" },
   { name: "Kontakt", href: "#contact" },
   { name: "Anfahrt", href: "/anfahrt" },
 ];
@@ -28,62 +28,64 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="sticky top-0 left-0 right-0 z-[99999] bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`sticky top-0 left-0 right-0 z-[99999] transition-all duration-500 ${
+        scrolled
+          ? "bg-white/98 backdrop-blur-md shadow-sm border-b border-stone-100"
+          : "bg-white/95 backdrop-blur-md border-b border-stone-100"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.a
             href="#hero"
-            className="flex items-center gap-3"
-            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-3 group"
+            whileHover={{ opacity: 0.8 }}
+            transition={{ duration: 0.2 }}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
-            <div>
-              <span className="font-bold text-xl tracking-tight text-primary">
-                SALIF
+            <div className="flex flex-col leading-none">
+              <span
+                className="font-serif text-xl font-semibold tracking-wide text-primary"
+                style={{ fontFamily: "var(--font-cormorant), Georgia, serif", letterSpacing: "0.04em" }}
+              >
+                Dr. med. Anna Berger
               </span>
-              <span className="block text-[10px] tracking-widest uppercase text-primary-light">
-                Gebäudeservice
+              <span className="text-[10px] tracking-[0.2em] uppercase text-accent font-light mt-0.5">
+                Hausarztpraxis · Freiburg
               </span>
             </div>
           </motion.a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
-              <motion.a
+              <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium transition-colors relative group text-gray-700 hover:text-primary"
-                whileHover={{ y: -2 }}
+                className="text-[13px] font-light tracking-wide text-stone-600 hover:text-primary transition-colors duration-200 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
-              </motion.a>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
+              </a>
             ))}
-            <motion.a
-              href="tel:015229043159"
-              className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-accent/30 hover:shadow-accent/50"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
+              href="tel:076112345670"
+              className="flex items-center gap-2 border border-primary/20 hover:border-primary text-primary hover:bg-primary hover:text-white px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300"
             >
-              <Phone className="w-4 h-4" />
-              Jetzt anrufen
-            </motion.a>
+              <Phone className="w-3.5 h-3.5" />
+              Termin anfragen
+            </a>
           </div>
 
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-primary touch-manipulation"
+            className="md:hidden p-2 text-primary touch-manipulation"
             aria-label="Menü öffnen"
             aria-expanded={isOpen}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -95,32 +97,28 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="md:hidden bg-white border-t border-stone-100"
           >
-            <div className="px-4 py-6 space-y-3">
-              {navLinks.map((link, i) => (
-                <motion.a
+            <div className="px-4 py-6 space-y-1">
+              {navLinks.map((link) => (
+                <a
                   key={link.name}
                   href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
                   onClick={() => setIsOpen(false)}
-                  className="block text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-muted transition-all"
+                  className="block py-3 px-2 text-stone-600 hover:text-primary border-b border-stone-50 text-sm font-light tracking-wide transition-colors"
                 >
                   {link.name}
-                </motion.a>
+                </a>
               ))}
-              <motion.a
-                href="tel:015229043159"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex items-center justify-center gap-2 bg-accent text-white py-3 rounded-full font-semibold mt-4"
-              >
-                <Phone className="w-4 h-4" />
-                01522 904 3159
-              </motion.a>
+              <div className="pt-4">
+                <a
+                  href="tel:076112345670"
+                  className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 text-sm font-medium tracking-wide"
+                >
+                  <Phone className="w-4 h-4" />
+                  0761 123 4567
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

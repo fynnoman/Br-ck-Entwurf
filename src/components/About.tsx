@@ -2,15 +2,14 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CheckCircle, Award, Users, Calendar } from "lucide-react";
-import Image from "next/image";
+import { GraduationCap, HeartHandshake, Clock3, UserRound } from "lucide-react";
 import AboutLine from "./AboutLine";
 
 const stats = [
-  { icon: Calendar, value: "Seit 2020", label: "Im Einsatz" },
-  { icon: Users, value: "Regional", label: "In Pirmasens" },
-  { icon: Award, value: "100%", label: "Zuverlässigkeit" },
-  { icon: CheckCircle, value: "9+", label: "Dienstleistungen" },
+  { icon: Clock3, value: "Seit 2008", label: "Niedergelassen" },
+  { icon: UserRound, value: "2.400+", label: "Patientinnen & Patienten" },
+  { icon: GraduationCap, value: "Approbiert", label: "Allgemeinmedizin" },
+  { icon: HeartHandshake, value: "100 %", label: "Persönliche Betreuung" },
 ];
 
 export default function About() {
@@ -22,100 +21,132 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 sm:py-32 bg-white relative">
+    <section ref={sectionRef} id="about" className="py-28 sm:py-36 bg-white relative overflow-hidden">
       <AboutLine sectionRef={sectionRef} contentRef={contentRef} headingRef={headingRef} textRef={textRef} />
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl" />
+
+      {/* Background decoration — warm tone */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div ref={contentRef} className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left side - Logo: hidden on mobile, shown on lg+ */}
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          {/* Left side — portrait placeholder or decorative block */}
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-            className="relative hidden lg:flex items-center justify-center"
+            transition={{ duration: 0.8 }}
+            className="relative hidden lg:block"
           >
-            <div className="relative w-full max-w-lg mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-white">
-              <Image
-                src="/B817091D-7DD4-4933-B2A3-C1F9F15867F1.png"
-                alt="Salif Gebäudeservice Logo"
-                fill
-                className="object-contain scale-90"
-                style={{ mixBlendMode: 'multiply' }}
-              />
+            <div className="relative aspect-[4/5] bg-muted overflow-hidden">
+              {/* Placeholder portrait */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/10 flex items-end justify-center pb-12">
+                <div className="text-center">
+                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <UserRound className="w-12 h-12 text-primary/30" />
+                  </div>
+                  <p className="text-primary/40 text-xs tracking-[0.2em] uppercase">Dr. med. Anna Berger</p>
+                </div>
+              </div>
+              {/* Gold corner accent */}
+              <div className="absolute top-6 left-6 w-12 h-12 border-t border-l border-accent/40" />
+              <div className="absolute bottom-6 right-6 w-12 h-12 border-b border-r border-accent/40" />
+            </div>
+            {/* Floating quote card */}
+            <div className="absolute -right-8 bottom-16 bg-white shadow-lg border border-stone-100 p-6 max-w-[220px]">
+              <p className="text-primary/70 text-sm font-light leading-relaxed italic"
+                style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "1.05rem" }}>
+                „Medizin bedeutet für mich, den Menschen wirklich zuzuhören."
+              </p>
+              <p className="text-accent text-xs tracking-widest mt-3 font-light">— Dr. A. Berger</p>
             </div>
           </motion.div>
 
-          {/* Right side - Text */}
+          {/* Right side — text */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
           >
-            <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">
-              Über uns
-            </span>
-            <h2 ref={headingRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-              Ihr zuverlässiger Partner in{" "}
-              <span className="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">
-                Pirmasens
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-px w-8 bg-accent" />
+              <span className="text-accent text-[11px] tracking-[0.25em] uppercase font-light">
+                Über die Praxis
               </span>
+            </div>
+            <h2
+              ref={headingRef}
+              className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-6 leading-[1.2]"
+              style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+            >
+              Erfahrung trifft
+              <br />
+              <em className="font-normal not-italic text-stone-400">persönliche Fürsorge</em>
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Salif Gebäudeservice – Haus und mehr GbR steht für professionelle
-              Dienstleistungen rund ums Haus. Von der Gebäudereinigung über den
-              Hausmeisterservice bis hin zu Umzügen und Entrümpelungen bieten wir
-              Ihnen alles aus einer Hand.
+            <p className="text-stone-500 font-light leading-relaxed mb-5 text-[15px]">
+              Dr. med. Anna Berger ist seit 2008 als niedergelassene Hausärztin
+              in Freiburg tätig. Nach dem Studium an der Albert-Ludwigs-Universität
+              und mehrjähriger Kliniktätigkeit in der Inneren Medizin hat sie
+              sich der wohnortnahen Grundversorgung verschrieben.
             </p>
-            <p ref={textRef} className="text-gray-600 text-lg leading-relaxed mb-8">
-              Unser Team arbeitet gründlich, zuverlässig und immer mit dem Ziel,
-              unsere Kunden zu 100% zufriedenzustellen. Überzeugen Sie sich selbst
-              von unserer Qualität!
+            <p ref={textRef} className="text-stone-500 font-light leading-relaxed mb-8 text-[15px]">
+              In unserer Praxis nehmen wir uns die Zeit, die es braucht.
+              Kurze Wartezeiten, verständliche Erklärungen und ein offenes
+              Ohr für Ihre Anliegen sind für uns keine Versprechen – sie sind
+              unser täglicher Anspruch.
             </p>
 
             {/* Key points */}
-            <div className="space-y-4 mb-10">
+            <div className="space-y-3 mb-10">
               {[
-                "Professionelle und erfahrene Mitarbeiter",
-                "Faire und transparente Preise",
-                "Flexible Terminvereinbarung",
-                "Persönliche Beratung vor Ort",
+                "Fachärztin für Allgemeinmedizin",
+                "Kassenzulassung & Privatpatienten",
+                "Terminvergabe innerhalb von 48 Stunden",
+                "Barrierefreie Praxis mit Aufzug",
               ].map((point, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 16 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="flex items-center gap-3"
+                  transition={{ delay: 0.35 + i * 0.1 }}
+                  className="flex items-start gap-3"
                 >
-                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                  <span className="text-gray-700 font-medium">{point}</span>
+                  <div className="w-px h-4 bg-accent mt-1.5 flex-shrink-0" />
+                  <span className="text-stone-600 font-light text-[14px]">{point}</span>
                 </motion.div>
               ))}
             </div>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 border border-primary/20 hover:border-primary text-primary hover:bg-primary hover:text-white px-8 py-3.5 text-sm tracking-widest uppercase font-light transition-all duration-300"
+            >
+              Termin vereinbaren
+            </a>
           </motion.div>
         </div>
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-stone-100 bg-stone-100"
         >
           {stats.map((stat, i) => (
-            <motion.div
+            <div
               key={i}
-              whileHover={{ y: -5 }}
-              className="text-center bg-muted rounded-2xl p-6 border border-gray-100"
+              className="text-center bg-white px-6 py-8"
             >
-              <stat.icon className="w-8 h-8 text-accent mx-auto mb-3" />
-              <div className="text-2xl font-bold text-primary">{stat.value}</div>
-              <div className="text-gray-500 text-sm mt-1">{stat.label}</div>
-            </motion.div>
+              <stat.icon className="w-5 h-5 text-accent mx-auto mb-3" />
+              <div
+                className="text-2xl font-light text-primary mb-1"
+                style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+              >
+                {stat.value}
+              </div>
+              <div className="text-stone-400 text-xs tracking-widest uppercase font-light">{stat.label}</div>
+            </div>
           ))}
         </motion.div>
       </div>

@@ -114,38 +114,36 @@ export default function ScrollLine() {
       >
         {pathD && (
           <>
-            {/* Graue Basislinie */}
+            {/* Gray base line */}
             <path
               ref={grayRef}
               d={pathD}
-              stroke="#d1d5db"
-              strokeWidth={2}
+              stroke="#e5e0d5"
+              strokeWidth={1}
               fill="none"
               strokeLinecap="round"
             />
-            {/* Neon-grüne animierte Linie */}
+            {/* Gold animated line */}
             {totalLen > 0 && (
               <motion.path
                 d={pathD}
-                stroke="#39ff14"
-                strokeWidth={3}
+                stroke="#b8986a"
+                strokeWidth={1.5}
                 fill="none"
                 strokeLinecap="round"
                 style={{
                   strokeDasharray: totalLen,
                   strokeDashoffset: dashOffset,
-                  filter: 'drop-shadow(0 0 6px #39ff14)',
                 }}
               />
             )}
-            {/* Neon-Punkt am Ende */}
+            {/* Gold dot at end */}
             {endPoint && (
               <circle
                 cx={endPoint.x}
                 cy={endPoint.y}
-                r={4}
-                fill="#39ff14"
-                style={{ filter: 'drop-shadow(0 0 6px #39ff14)' }}
+                r={3}
+                fill="#b8986a"
               />
             )}
           </>

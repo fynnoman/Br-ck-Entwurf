@@ -2,32 +2,31 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const contactItems = [
   {
     icon: Phone,
-    label: "Telefon / WhatsApp",
-    value: "01522 904 3159",
-    href: "tel:015229043159",
+    label: "Telefon",
+    value: "0761 123 4567",
+    href: "tel:076112345670",
   },
   {
     icon: Mail,
     label: "E-Mail",
-    value: "salif-dienstleistungen@gmx.de",
-    href: "mailto:salif-dienstleistungen@gmx.de",
+    value: "info@praxis-dr-berger.de",
+    href: "mailto:info@praxis-dr-berger.de",
   },
   {
     icon: MapPin,
     label: "Adresse",
-    value: "Emilienstraße 5a, 66955 Pirmasens",
+    value: "Schillerstraße 12, 79102 Freiburg",
     href: null,
   },
   {
     icon: Clock,
-    label: "Erreichbarkeit",
-    value: "Mo – Sa: 7:00 – 20:00 Uhr",
+    label: "Sprechzeiten",
+    value: "Mo–Do 8–18 Uhr · Fr 8–14 Uhr",
     href: null,
   },
 ];
@@ -37,99 +36,116 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-white relative overflow-hidden">
-      {/* Subtle green grid */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(34,197,94,0.07) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34,197,94,0.07) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px',
-        }}
-      />
+    <section id="contact" className="py-28 sm:py-36 bg-white relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23b8986a%22%20fill-opacity%3D%220.04%22%3E%3Ccircle%20cx%3D%221%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-60 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="mb-16"
         >
-          <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">
-            Kontakt
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4">
-            Jetzt Kontakt aufnehmen
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-lg">
-            Wir freuen uns auf Ihre Anfrage – für ein unverbindliches Angebot einfach melden.
-          </p>
-        </motion.div>
-
-        {/* Contact cards — 2×2 grid */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-10">
-          {contactItems.map(({ icon: Icon, label, value, href }, i) => {
-            const inner = (
-              <>
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-0.5">{label}</div>
-                  <div className="text-sm sm:text-base font-bold text-primary break-all">{value}</div>
-                </div>
-              </>
-            );
-
-            return (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-              >
-                {href ? (
-                  <a
-                    href={href}
-                    className="flex items-center gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm hover:border-accent/40 hover:shadow-md transition-all"
-                  >
-                    {inner}
-                  </a>
-                ) : (
-                  <div className="flex items-center gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm">
-                    {inner}
-                  </div>
-                )}
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* WhatsApp CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex justify-center"
-        >
-          <motion.a
-            href="https://wa.me/4915229043159"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-white text-lg"
-            style={{ backgroundColor: '#22c55e', boxShadow: '0 0 32px rgba(34,197,94,0.25)' }}
-            whileHover={{ scale: 1.03, boxShadow: '0 0 48px rgba(34,197,94,0.4)' }}
-            whileTap={{ scale: 0.97 }}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-px w-8 bg-accent" />
+            <span className="text-accent text-[11px] tracking-[0.25em] uppercase font-light">
+              Kontakt & Termin
+            </span>
+          </div>
+          <h2
+            className="text-4xl sm:text-5xl font-light text-primary leading-[1.15]"
+            style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
           >
-            <MessageCircle className="w-5 h-5" />
-            Über WhatsApp schreiben
-          </motion.a>
+            Wir freuen uns
+            <br />
+            <em className="font-normal not-italic text-stone-400">auf Ihren Anruf</em>
+          </h2>
         </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Left: contact info */}
+          <div className="space-y-0 border border-stone-100 divide-y divide-stone-100">
+            {contactItems.map(({ icon: Icon, label, value, href }, i) => {
+              const inner = (
+                <div className="flex items-start gap-5 p-6 group">
+                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] tracking-[0.2em] uppercase text-stone-300 font-light mb-1">{label}</div>
+                    <div className="text-sm font-light text-primary">{value}</div>
+                  </div>
+                </div>
+              );
+
+              return (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                >
+                  {href ? (
+                    <a href={href} className="block hover:bg-muted transition-colors">
+                      {inner}
+                    </a>
+                  ) : (
+                    <div>{inner}</div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Right: call to action panel */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="bg-primary p-10 flex flex-col justify-between"
+          >
+            <div>
+              <p
+                className="text-white/30 text-[10px] tracking-[0.2em] uppercase mb-4"
+              >
+                Terminvereinbarung
+              </p>
+              <h3
+                className="text-2xl sm:text-3xl font-light text-white mb-4 leading-snug"
+                style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+              >
+                Rufen Sie uns an –<br />
+                <em className="font-normal not-italic text-white/50">wir sind für Sie da.</em>
+              </h3>
+              <p className="text-white/50 font-light text-sm leading-relaxed mb-8">
+                Für Terminvereinbarungen, Fragen zu Ihren Befunden oder
+                Rezeptanfragen stehen wir Ihnen während unserer Sprechzeiten
+                gerne zur Verfügung.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <a
+                href="tel:076112345670"
+                className="flex items-center justify-center gap-3 w-full bg-accent hover:bg-accent-light text-white py-4 text-sm tracking-widest uppercase font-light transition-colors duration-300"
+              >
+                <Phone className="w-4 h-4" />
+                0761 123 4567
+              </a>
+              <a
+                href="mailto:info@praxis-dr-berger.de"
+                className="flex items-center justify-center gap-3 w-full border border-white/15 hover:border-white/30 text-white/60 hover:text-white py-4 text-sm tracking-widest uppercase font-light transition-all duration-300"
+              >
+                <Mail className="w-4 h-4" />
+                Per E-Mail schreiben
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
 }
+

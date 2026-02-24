@@ -5,30 +5,34 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Datenschutz",
-  description: "Datenschutzerklärung der Salif Gebäudeservice – Haus und mehr GbR gemäß DSGVO. Informationen zur Datenverarbeitung auf unserer Website.",
+  description: "Datenschutzerklärung der Hausarztpraxis Dr. med. Anna Berger gemäß DSGVO.",
   robots: { index: false, follow: false },
-  alternates: { canonical: "https://www.salif-gebaeude.de/datenschutz" },
 };
 
 export default function DatenschutzPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#faf9f7]">
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-700 text-sm mb-10 transition-colors"
+          className="inline-flex items-center gap-2 text-stone-300 hover:text-stone-600 text-sm mb-10 transition-colors font-light"
         >
           <ArrowLeft className="w-4 h-4" />
           Zurück zur Startseite
         </Link>
 
-        <h1 className="text-4xl font-bold text-[#1a3a5c] mb-2">Datenschutzerklärung</h1>
-        <p className="text-gray-400 text-sm mb-12">Stand: Februar 2026</p>
+        <h1
+          className="text-4xl font-light text-primary mb-2"
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+        >
+          Datenschutzerklärung
+        </h1>
+        <p className="text-stone-400 text-sm mb-12 font-light">Stand: Februar 2026</p>
 
-        <div className="space-y-10 text-gray-700 leading-relaxed">
+        <div className="space-y-10 text-stone-500 leading-relaxed font-light text-sm">
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">1. Datenschutz auf einen Blick</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">1. Datenschutz auf einen Blick</h2>
             <h3 className="font-semibold text-[#1a3a5c] mb-1">Allgemeine Hinweise</h3>
             <p>
               Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
@@ -38,22 +42,22 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">2. Verantwortlicher</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">2. Verantwortlicher</h2>
             <p>
               Verantwortlicher im Sinne der DSGVO ist:<br /><br />
-              Salif Gebäudeservice – Haus und mehr GbR<br />
-              Emilienstraße 5a<br />
-              66955 Pirmasens<br /><br />
-              Telefon: 01522 904 3159<br />
+              Dr. med. Anna Berger – Hausarztpraxis<br />
+              Schillerstraße 12<br />
+              79102 Freiburg<br /><br />
+              Telefon: 0761 123 4567<br />
               E-Mail:{" "}
-              <a href="mailto:salif-dienstleistungen@gmx.de" className="text-[#22c55e] hover:underline">
-                salif-dienstleistungen@gmx.de
+              <a href="mailto:info@praxis-dr-berger.de" className="text-[#22c55e] hover:underline">
+                info@praxis-dr-berger.de
               </a>
             </p>
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">3. Datenerfassung auf dieser Website</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">3. Datenerfassung auf dieser Website</h2>
 
             <h3 className="font-semibold text-[#1a3a5c] mb-1">Server-Log-Dateien</h3>
             <p className="mb-4">
@@ -86,7 +90,7 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">4. Google Maps</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">4. Google Maps</h2>
             <p>
               Diese Website nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland
               Limited, Gordon House, Barrow Street, Dublin 4, Irland. Zur Nutzung der Funktionen von
@@ -118,7 +122,7 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">5. Ihre Rechte</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">5. Ihre Rechte</h2>
             <p className="mb-3">Sie haben jederzeit das Recht:</p>
             <ul className="list-disc pl-5 space-y-1 text-sm">
               <li>unentgeltlich Auskunft über Ihre gespeicherten personenbezogenen Daten zu erhalten (Art. 15 DSGVO)</li>
@@ -130,8 +134,8 @@ export default function DatenschutzPage() {
             </ul>
             <p className="mt-4">
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
-              <a href="mailto:salif-dienstleistungen@gmx.de" className="text-[#22c55e] hover:underline">
-                salif-dienstleistungen@gmx.de
+              <a href="mailto:info@praxis-dr-berger.de" className="text-[#22c55e] hover:underline">
+                info@praxis-dr-berger.de
               </a>
             </p>
             <p className="mt-3">
@@ -142,7 +146,7 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">6. Datensicherheit</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">6. Datensicherheit</h2>
             <p>
               Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher
               Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie
@@ -153,7 +157,7 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">7. Cookies</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">7. Cookies</h2>
             <p>
               Diese Website verwendet keine Tracking-Cookies oder Analyse-Tools. Es werden
               ausschließlich technisch notwendige Cookies eingesetzt, die für den Betrieb der Website
@@ -163,7 +167,7 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">8. Aktualität dieser Datenschutzerklärung</h2>
+            <h2 className="text-base font-light text-primary mb-2 tracking-wide">8. Aktualität dieser Datenschutzerklärung</h2>
             <p>
               Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie stets den
               aktuellen rechtlichen Anforderungen entsprechen zu lassen. Die jeweils aktuelle
